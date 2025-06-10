@@ -7,7 +7,7 @@ import os
 # ------------------------------
 # Configuration
 # ------------------------------
-API_KEY = "02cd97e6596df900af02efa2d414a2a9"  # Replace with your OpenWeatherMap API key
+API_KEY = "02cd97e6596df900af02efa2d414a2a9"  
 CITIES = [
     "Berlin", "Munich", "Hamburg", "Cologne", "Frankfurt",
     "Stuttgart", "Düsseldorf", "Dortmund", "Essen", "Leipzig",
@@ -20,8 +20,7 @@ CSV_PATH = os.path.join(DATA_DIR, "cleaned_weather.csv")
 DB_PATH = os.path.join(DATA_DIR, "weather.db")
 
 # ------------------------------
-# Step 1: Fetch Weather Data
-# ------------------------------
+# Step 1: extract Weather Data
 def fetch_weather_data():
     records = []
 
@@ -64,7 +63,6 @@ def fetch_weather_data():
 
 # ------------------------------
 # Step 2: Store Data
-# ------------------------------
 def store_data(df):
     # Save to CSV
     df.to_csv(CSV_PATH, index=False)
@@ -78,7 +76,6 @@ def store_data(df):
 
 # ------------------------------
 # Main Pipeline Execution
-# ------------------------------
 def run_etl():
     print("🚀 Starting ETL pipeline...")
     df = fetch_weather_data()
